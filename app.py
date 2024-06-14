@@ -52,6 +52,11 @@ def register():
         firstname = request.form['firstname']
         surname = request.form['surname']
         email = request.form['email']
+        education = request.form['education']
+        location = request.form['location']
+        year = request.form['year']
+        bio = request.form['bio']
+        house = request.form['house']
         password = request.form['password']
 
         # Server-side validation (optional, improve based on your needs)
@@ -68,7 +73,7 @@ def register():
 
         hashed = bcrypt.hashpw(password.encode('utf-8'), bytes(bcrypt.gensalt()))
         conn = connect_db()
-        insert_user(conn, firstname.upper(), surname.upper(), email, hashed)
+        insert_user(conn, firstname.upper(), surname.upper(), email, education, location, bio, year, house, hashed)
         conn.close()
 
         flash('Registration successful!', 'success')
@@ -120,7 +125,7 @@ def prof(email):
         cursor = conn.cursor()
         user = conn.execute("SELECT users.firstname, users.surname, users.email, profiles.education, profiles.location, profiles.bio, profiles.year FROM users INNER JOIN profiles ON users.id=profiles.user_id WHERE users.email = ?", (email,)).fetchone()
         if not user:
-            user=conn.execute("SELECT users.firstname, users.surname, users.email FROM users WHERE users.email = ?", (email,)).fetchone()
+            user=conn.execute("SELECT * FROM users WHERE users.email = ?", (email,)).fetchone()
         conn.close()
         return render_template('prof.html', user=user)
     return render_template('login.html')
@@ -139,9 +144,11 @@ def profile():
         year = request.form['year']
         bio = request.form['bio']
         house = request.form['house']
-        print(user_id,education,location,bio,year,house)
+        # print(user_id,education,location,bio,year,house)
         conn = connect_db()
-        inser_profile(conn,user_id,education,location,bio,year,house)
+        user = conn.execute("INSERT INTO profiles( user_id, education, location, bio, year, house) VALUES( ?, ?, ?, ?, ?, ?)", (user_id,education,location,bio,year,house))
+        conn.commit()
+        # inser_profile(conn,user_id,education,location,bio,year,house)
         conn.close()
         flash('Registration successful!', 'success')
         return redirect(url_for('edit_profile', id=user_id))
