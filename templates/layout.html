@@ -22,12 +22,14 @@
     
     
         {% if session.email %}
-        <li style="float:right" class="dropdown"><a href="#"><i class='fas fa-user-alt'></i>Profile
+        <li style="float:right"><a href="/logout">Logout</a></li>
+        <li style="float:right"><a href="{{ url_for('myprofile', email=session.email) }}">Profile</a></li>
+        <!-- <li style="float:right" class="dropdown"><a href="#"><i class='fas fa-user-alt'></i>Profile
             <div class="dropdown-content">
                 <a href="{{ url_for('myprofile', email=session.email) }}">Profile</a>
                 <a href="/logout">Logout</a>
             </div>
-        </a></li>
+        </li> -->
         {% else %}
         <li style="float:right"><a href="/login">LogIn </a></li>
         <li style="float:right"><a href="/register">SignUp</a></li>
