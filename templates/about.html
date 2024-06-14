@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block allcontent %}
+    <section class="ABT">
+        <div class="hist">
+        <h1>Our Story</h1>
+        <a href="{{url_for('static', filename='images/library.jpg')}}" ></a>
+        <!-- <img src="{{url_for('static', filename='images/vintage.jpg')}}"> -->
+    </div>
+
+
+    </section>
+    <section class="Hi">
+        <h1>Our History</h1>
+        <p>On 24 September 1929 the foundation stone was laid by Sir Edward Grigg, Governor of Kenya colony, for a school with a capacity of 80 boys. Under the stone was preserved a copy of the newspaper of the day. The School opened in 1931, not only for the 80 boys it was designed, but with 84 boarders and 20-day boys. The headmaster felt the old name 'Kabete Boys Secondary School' was too clumsy and it was given the name 'Prince of Wales School', with the Prince of Wales feathers inserted between the horns of a Royal Impala as the School badge, accompanied by the school motto "TO THE UTTERMOST".
+        </p>
+        <div class="row">
+            <img src="{{url_for('static', filename='images/Chapel.jpg')}}">
+            <p>Enrolment proved higher than initially anticipated, requiring new classrooms. Due to a general shortage of cement, the first wooden classrooms were erected around 1938. The School population increased further because of the Second World War and the Kenya Governor authorised the building of corrugated iron dormitories (the group of buildings that later became Intermediate/Fletcher House – the current Music Room). It was called 'Lacey's Landies'. The effects of the war were felt more when the Italians joined in June 1940, including the fear of bombing, and it was made a day school. In June 1940, a military hospital took over the buildings and the students were moved back to the European Nairobi School (the present Nairobi Primary School.) </p>
+        </div>
+        <div class="row">
+            <p>During the Christmas break of 1941, the whole school came back to Kabete, and the space at the European Nairobi School was taken over by the Girls' Secondary School. In 1942, European education was made compulsory and enrolment increased so much that new temporary classrooms were needed. The wooden classrooms were erected as a "temporary wartime measure." Clive, Grigg, Hawke and Rhodes Houses (the only four houses at the time) were all accommodated in the permanent building adjacent to the tuition block. Today those are two houses, known as Marsabit and Elgon. </p>
+            <img src="{{url_for('static', filename='images/mentor.jpg')}}">
+        </div>
+    </section>
+
+{% endblock %}

@@ -14,7 +14,7 @@ body {
     width: 100%;
 }
 .container{
-    margin-top: 50px;
+    margin-top: 0px;
 }
 .dropdown{
     background-color: white;
@@ -328,6 +328,43 @@ h3{
 
 /* alumini */
 
+.ABT{
+    background-image:url('/static/images/library.jpg');
+    width: 100%;
+    min-height: 60vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    margin-top: 55px;
+}
+.ABT h1{
+    size: 70px;
+    color:black;
+    text-align: center;
+    position:relative;
+    top: 50%;
+    bottom: 50%;
+}
+.HI{
+    background-color: aliceblue;
+}
+.HI h1{
+    size: 20px;
+    color: #000;
+    text-align: left;
+    text-decoration: underline;
+
+}
+.mis{
+    text-align: center;
+    color: #000000a3;
+    size: 30px;
+}
+mis.h1{
+    size: 20px;
+    font-weight: 300;
+    color: #282727;
+}
 
 /* .alumni-table{
     width: 700px;
